@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        app:elevation="1dp"
+        android:elevation="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:background="#ffffff">
+
+
+        <LinearLayout
+            android:id="@+id/main_row"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <ProgressBar
+                    android:visibility="gone"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/progress1"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginRight="16dp"/>
+
+
+                <ImageView
+                    android:id="@+id/refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="16dp"
+                    app:srcCompat="@drawable/ic_outline_info_24"
+                    app:tint="#C4C4C4" />
+
+                <ImageView
+                    android:id="@+id/actBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="16dp"
+                    app:srcCompat="@drawable/ic_arrow_back"
+                    app:tint="#C4C4C4" />
+
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Absensi"
+                    android:textColor="#000" />
+
+
+
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#ffffff"
+            android:scrollbars="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingBottom="280dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                xmlns:app="http://schemas.android.com/apk/res-auto">
+
+                <com.google.android.material.card.MaterialCardView
+                    app:cardCornerRadius="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/selfi_foto"
+                        android:src="@drawable/family_avatar"
+                        android:scaleType="centerCrop"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <View style="@style/divider" />
+
+                <com.company.absensikaryawan1.config.CustomDigitalClock
+                    android:id="@+id/tv_jam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="09:01:40"
+                    android:textAllCaps="true"
+                    android:textColor="#464646"
+                    android:padding="10dp"
+                    android:textSize="24dp"
+                    android:fontFamily="sans-serif-light"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:textColor="#4C4C4C"
+                    android:text="Lokasi saat ini:" />
+
+                <RelativeLayout
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_alamat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/actRefreshLyt"
+                        android:gravity="left"
+                        android:paddingTop="@dimen/activity_vertical_margin"
+                        android:paddingBottom="@dimen/activity_vertical_margin"
+                        android:text="" />
+
+                    <RelativeLayout
+                        android:id="@+id/actRefreshLyt"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ProgressBar
+                            android:layout_weight="1"
+                            android:id="@+id/actRefreshLokasiLoading"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_margin="8dp"
+                            android:minHeight="24dp"
+                            android:minWidth="24dp" />
+                        <ImageView
+                            android:visibility="gone"
+                            android:id="@+id/actRefreshLokasi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?selectableItemBackground"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_refresh" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/lokasi_lat"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/lokasi_long"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/addressLine1"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/addressLine2"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/city_sub"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/city"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/state_sub"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/state"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/country"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/postalCode"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/knownName"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tambahkan catatan"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="320"
+                    app:passwordToggleEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editCatatan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="320"
+                        android:gravity="top|start"
+                        android:inputType="textMultiLine|textNoSuggestions|textCapSentences"/>
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:background="#fff"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View style="@style/divider" />
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/actionKirim"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/activity_vertical_margin"
+                    android:text="Kirim"
+                    app:backgroundTint="@color/colorSakit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-7dp"
+        android:indeterminate="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        app:elevation="1dp"
+        android:elevation="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:background="#f2f2f2">
+
+
+        <LinearLayout
+            android:id="@+id/main_row"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:padding="@dimen/activity_vertical_margin"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+
+                <ImageView
+                    android:id="@+id/iconLogo"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="?selectableItemBackground"
+                    app:srcCompat="@drawable/logo" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:text="Absensi Karyawan"
+                    android:layout_toRightOf="@+id/iconLogo"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="4dp"
+                    android:textSize="18dp"
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <ImageView
+                    android:id="@+id/actionLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/actMengajukan"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:padding="4dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_baseline_close_24"
+                    app:tint="#F44336" />
+
+
+                <ImageView
+                    android:id="@+id/actMengajukan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:padding="4dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_baseline_mail_outline_24"
+                    app:tint="#FFC107" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:id="@+id/root_view"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="#FFFFFF"
+        android:descendantFocusability="blocksDescendants"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <!--data siswa start-->
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#ffffff"
+                android:scrollbars="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:background="#f2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!--0-->
+                        <com.google.android.material.card.MaterialCardView
+                            android:elevation="1dp"
+                            app:cardElevation="1dp"
+                            app:cardCornerRadius="0dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/activity_vertical_margin"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/activity_vertical_margin"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:layout_width="160dp"
+                                        android:layout_height="160dp">
+
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_gravity="center_vertical|center_horizontal"
+                                            android:background="@drawable/circle_shape"
+                                            android:gravity="center_vertical|center_horizontal" />
+
+                                        <de.hdodenhof.circleimageview.CircleImageView
+                                            android:id="@+id/imageProfile"
+                                            android:layout_width="125dp"
+                                            android:layout_height="125dp"
+                                            android:layout_centerInParent="true"
+                                            android:layout_marginStart="2dp"
+                                            android:layout_marginTop="2dp"
+                                            android:layout_marginEnd="2dp"
+                                            android:layout_marginBottom="2dp"
+                                            android:padding="1dp"
+                                            android:scaleType="centerCrop"
+                                            android:src="@null" />
+
+                                        <ImageView
+                                            android:id="@+id/imageProfileEdit"
+                                            android:layout_width="32dp"
+                                            android:layout_height="32dp"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_marginBottom="20dp"
+                                            android:layout_marginRight="20dp"
+                                            android:background="@drawable/circle"
+                                            android:backgroundTint="#4CAF50"
+                                            android:padding="5dp"
+                                            app:srcCompat="@drawable/ic_baseline_create_24"
+                                            app:tint="#FFFFFF" />
+                                    </RelativeLayout>
+
+                                    <TextView
+                                        android:id="@+id/tv_nama"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="NAMA SAYA"
+                                        android:textAllCaps="true"
+                                        android:textColor="#464646"
+                                        android:padding="5dp"
+                                        android:textSize="16dp"
+                                        android:fontFamily="sans-serif-light"
+                                        android:textStyle="bold" />
+
+                                </LinearLayout>
+
+
+                                <TextView
+                                    android:id="@+id/tv_jam_shift"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="@dimen/activity_vertical_margin"
+                                    android:paddingRight="@dimen/activity_vertical_margin"
+                                    android:paddingTop="4dp"
+                                    android:paddingBottom="4dp"
+                                    android:textSize="16dp"
+                                    android:layout_marginTop="20dp"
+                                    android:fontFamily="sans-serif-light"
+                                    android:background="@drawable/circletext_gray1"
+                                    android:text="Lama bekerja 0" />
+
+                                <com.company.absensikaryawan1.config.CustomDigitalClock
+                                    android:id="@+id/tv_jam"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="09:01:40"
+                                    android:textAllCaps="true"
+                                    android:textColor="#464646"
+                                    android:padding="5dp"
+                                    android:textSize="56dp"
+                                    android:fontFamily="sans-serif-light"
+                                    android:textStyle="bold" />
+
+
+                                <TextView
+                                    android:id="@+id/tv_tanggal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:textSize="16dp"
+                                    android:layout_marginBottom="40dp"
+                                    android:fontFamily="sans-serif-light"
+                                    android:text="Senin, 21 Februari 2022" />
+
+
+                                <LinearLayout
+                                    android:orientation="horizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+                                    <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/actAbsensiMasuk"
+                                        android:text="Absensi Masuk"
+                                        android:layout_weight="1"
+                                        android:fontFamily="sans-serif-light"
+                                        android:layout_marginRight="4dp"
+                                        app:backgroundTint="@color/colorSakit"
+                                        app:icon="@drawable/ic_baseline_login_24"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="60dp"/>
+                                    <com.google.android.material.button.MaterialButton
+                                        android:id="@+id/actAbsensiPulang"
+                                        android:text="Absensi Pulang"
+                                        android:layout_weight="1"
+                                        android:fontFamily="sans-serif-light"
+                                        android:layout_marginLeft="4dp"
+                                        app:backgroundTint="@color/colorAlfa"
+                                        app:icon="@drawable/ic_baseline_call_missed_outgoing_24"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="60dp"/>
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                        <!--3-->
+                        <LinearLayout
+                            android:background="#ffffff"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:padding="8dp"
+                                android:text="Aktifitas hari ini"
+                                android:textColor="#979696"
+                                android:textSize="18dp"
+                                android:fontFamily="sans-serif-black" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/today_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="8dp"
+                                    android:fontFamily="sans-serif-light"
+                                    android:padding="8dp"
+                                    android:text="Hari ini"
+                                    android:textColor="#979696"
+                                    android:textSize="14dp" />
+
+                                <TextView
+                                    android:visibility="gone"
+                                    android:id="@+id/ujianlihat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginRight="8dp"
+                                    android:fontFamily="sans-serif-light"
+                                    android:padding="8dp"
+                                    android:text="Lihat detail"
+                                    android:textColor="#4CAF50"
+                                    android:textSize="14dp"
+                                    android:textStyle="bold" />
+
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:id="@+id/empty_view1"
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:background="#ffffff"
+                                android:layout_gravity="center|center_vertical"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:visibility="visible">
+
+                                <info.androidhive.fontawesome.FontTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_gravity="center_horizontal"
+                                    android:adjustViewBounds="true"
+                                    android:text="@string/fa_heart_broken_solid"
+                                    android:textColor="@color/colorStatusBack"
+                                    android:textSize="30dp"
+                                    app:solid_icon="true" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:fontFamily="sans-serif-light"
+                                    android:gravity="center"
+                                    android:text="Tidak ada data!" />
+                            </LinearLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerViewHariIni"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-7dp"
+        android:indeterminate="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

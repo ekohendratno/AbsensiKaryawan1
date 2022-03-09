@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/empty_view"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    android:layout_marginTop="80dp"
+    android:layout_marginBottom="260dp"
+    android:layout_gravity="center|center_vertical"
+    android:gravity="center_vertical"
+    android:visibility="visible"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <info.androidhive.fontawesome.FontTextView
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/fa_heart_broken_solid"
+        android:textColor="@color/colorStatusBack"
+        android:textSize="60dp"
+        android:adjustViewBounds="true"
+        app:solid_icon="true" />
+
+    <TextView
+        android:id="@+id/ev_title"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="Tidak ada data!" />
+</LinearLayout>

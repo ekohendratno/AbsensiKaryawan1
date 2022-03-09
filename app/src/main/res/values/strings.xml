@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Absensi Karyawan</string>
+    <string name="app_name2">Sistem Aplikasi Informasi Absensi</string>
+
+    <string-array name="jenis_presensi">
+        <item>Absensi Masuk</item>
+        <item>Absensi Pulang</item>
+    </string-array>
+
+    <string-array name="hari">
+        <item>Senin</item>
+        <item>Selasa</item>
+        <item>Rabu</item>
+        <item>Kamis</item>
+        <item>Jumat</item>
+        <item>Sabtu</item>
+    </string-array>
+
+    <string-array name="jk">
+        <item>P</item>
+        <item>L</item>
+    </string-array>
+
+    <string-array name="topik">
+        <item>orangtua</item>
+        <item>siswa</item>
+        <item>guru</item>
+    </string-array>
+
+    <string-array name="agama">
+        <item>Islam</item>
+        <item>Katholik</item>
+        <item>Kristen</item>
+        <item>Hindu</item>
+        <item>Budha</item>
+        <item>Konghuchu</item>
+        <item>Kepercayaan</item>
+    </string-array>
+
+    <string-array name="mengajukan">
+        <item>Cuti</item>
+        <item>Libur</item>
+        <item>Izin</item>
+        <item>Tidak hadir</item>
+    </string-array>
+</resources>
